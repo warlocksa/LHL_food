@@ -1,44 +1,75 @@
 <!-- signup modal  -->
-              <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                          <form class="pb-modalreglog-form-reg" method = "POST" action="/api/users/signup">
-                                <div class="form-group">
-                                    <div id="pb-modalreglog-progressbar"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email address</label>
-                                    <div class="input-group pb-modalreglog-input-group">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                        <input type="email" class="form-control" name = "email" id="inputEmail" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <div class="input-group pb-modalreglog-input-group">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                        <input type="password" class="form-control" id="inputPws" name = "password" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                  <button type="submit" class="btn btn-primary">Sign up</button>
-                              </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
+<div
+  class="modal fade"
+  id="myModal2"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form
+          class="pb-modalreglog-form-reg"
+          method="POST"
+          action="/api/users/signup"
+        >
+          <div class="form-group">
+            <div id="pb-modalreglog-progressbar"></div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <div class="input-group pb-modalreglog-input-group">
+              <span class="input-group-addon"
+                ><span class="glyphicon glyphicon-user"></span
+              ></span>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="inputEmail"
+                placeholder="Email"
+              />
             </div>
-
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-group pb-modalreglog-input-group">
+              <span class="input-group-addon"
+                ><span class="glyphicon glyphicon-lock"></span
+              ></span>
+              <input
+                type="password"
+                class="form-control"
+                id="inputPws"
+                name="password"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Sign up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- nav bar -->
 <nav class="navbar navbar-default navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <img id= "logo" src="img/logo2.png" alt="" >
+      <img id="logo" src="img/logo2.png" alt="" />
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -49,56 +80,102 @@
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search Cuisines, or Items">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search Cuisines, or Items"
+          />
         </div>
         <button type="submit" class="btn btn-default">Search</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><p class="navbar-text">Already have an account?</p></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-      <ul id="login-dp" class="dropdown-menu">
-        <li>
-           <div class="row">
-              <div class="col-md-12">
-                Login via
-                <div class="social-buttons">
-                  <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-                  <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-                </div>
-                                or
-                 <form class="form" role="form" method="POST" action="/api/users/login" accept-charset="UTF-8" id="login-nav">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+            ><b>Login</b> <span class="caret"></span
+          ></a>
+          <ul id="login-dp" class="dropdown-menu">
+            <li>
+              <div class="row">
+                <div class="col-md-12">
+                  Login via
+                  <div class="social-buttons">
+                    <a href="#" class="btn btn-fb"
+                      ><i class="fa fa-facebook"></i> Facebook</a
+                    >
+                    <a href="#" class="btn btn-tw"
+                      ><i class="fa fa-twitter"></i> Twitter</a
+                    >
+                  </div>
+                  or
+                  <form
+                    class="form"
+                    role="form"
+                    method="POST"
+                    action="/api/users/login"
+                    accept-charset="UTF-8"
+                    id="login-nav"
+                  >
                     <div class="form-group">
-                       <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                       <input type="email" class="form-control" id="exampleInputEmail2" name ="email" placeholder="Email address" required>
+                      <label class="sr-only" for="exampleInputEmail2"
+                        >Email address</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail2"
+                        name="email"
+                        placeholder="Email address"
+                        required
+                      />
                     </div>
                     <div class="form-group">
-                       <label class="sr-only" for="exampleInputPassword2">Password</label>
-                       <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" name ="password" required>
-                                             <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                      <label class="sr-only" for="exampleInputPassword2"
+                        >Password</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="exampleInputPassword2"
+                        placeholder="Password"
+                        name="password"
+                        required
+                      />
+                      <div class="help-block text-right">
+                        <a href="">Forget the password ?</a>
+                      </div>
                     </div>
                     <div class="form-group">
-                       <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                      <button type="submit" class="btn btn-primary btn-block">
+                        Sign in
+                      </button>
                     </div>
                     <div class="checkbox">
-                       <label>
-                       <input type="checkbox"> keep me logged-in
-                       </label>
+                      <label>
+                        <input type="checkbox" /> keep me logged-in
+                      </label>
                     </div>
-                 </form>
-              </div>
+                  </form>
+                </div>
 
-   <!-- toggle signup modal -->
-              <div class="bottom text-center">
-                New here ?
-                <button class="btn btn-primary pb-modalreglog-submit" data-toggle="modal" data-target="#myModal2"><b>Sign Up</b></button>
-
+                <!-- toggle signup modal -->
+                <div class="bottom text-center">
+                  New here ?
+                  <button
+                    class="btn btn-primary pb-modalreglog-submit"
+                    data-toggle="modal"
+                    data-target="#myModal2"
+                  >
+                    <b>Sign Up</b>
+                  </button>
+                </div>
               </div>
-           </div>
-          </li>
-         </ul>
+            </li>
+          </ul>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
 </nav>
