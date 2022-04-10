@@ -23,7 +23,14 @@ app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
-
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["secure", "checker", "keys"],
+    // Cookie Option
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  })
+);
 app.use(
   "/styles",
   sassMiddleware({
