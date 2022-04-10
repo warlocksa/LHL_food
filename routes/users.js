@@ -19,10 +19,13 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
-  router.get("/login", (req, res) => {
-    res.render("login");
-  });
+
   router.post("/login", (req, res) => {
+    console.log(req.body);
+  });
+
+  router.post("/signup", (req, res) => {
+    console.log("sd");
     console.log(req.body);
   });
 
