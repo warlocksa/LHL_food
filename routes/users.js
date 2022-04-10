@@ -25,7 +25,6 @@ module.exports = (db) => {
   });
 
   router.post("/signup", (req, res) => {
-    console.log("sd");
     console.log(req.body);
   });
 
