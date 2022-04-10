@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <title>Home Page</title>
+
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
@@ -9,23 +11,21 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-<!-- Latest compiled and minified CSS -->
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 
 <body>
   <header>
     <%- include('partials/_header') %>
   </header>
-  <form method="GET" action="/api/users/login">
-    <button type="submit" id = 'login'>log in</button>
+  <form method="POST" action="/api/users/login
+  ">
+      <input type="email" name = "email"/>
+      <label class="form-label" for="typeEmailX">Email</label>
+      <input type="password" name = "password"/>
+      <label class="form-label" for="typePasswordX">Password</label>
   </form>
-
 </body>
+
 </html>
