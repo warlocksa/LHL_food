@@ -6,8 +6,6 @@ const db = new Pool(dbParams);
 //helper functions in database
 /**
  * Get a single user from the database given their email.
- * @param {String} email The email of the user.
- * @return {Promise<{}>} A promise to the user.
  */
 
 const getUserWithEmail = function (email) {
@@ -33,8 +31,6 @@ exports.getUserWithEmail = getUserWithEmail;
 
 /**
  * Get a single user from the database given their id.
- * @param {string} id The id of the user.
- * @return {Promise<{}>} A promise to the user.
  */
 const getUserWithId = function (id) {
   return db
@@ -75,3 +71,23 @@ const addUser = function (user) {
     });
 };
 exports.addUser = addUser;
+
+/// meals
+
+/**
+ * Get all meals.
+ */
+const getAllMeals = function () {
+  return db
+    .query(
+      ` SELECT *
+      FROM meals;`
+    )
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+exports.getAllMeals = getAllMeals;

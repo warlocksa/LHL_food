@@ -53,7 +53,6 @@ module.exports = (db) => {
 
   router.post("/logout", (req, res) => {
     req.session = null;
-    console.log("goin");
     res.redirect("/");
   });
 

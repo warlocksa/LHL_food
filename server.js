@@ -53,15 +53,18 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  const userId = req.session.userId;
-  if (!userId) {
-    res.render("index", { user: userId });
-    return;
-  }
-  db.getUserWithId(userId).then((user) => {
-    console.log("goin", user);
-    res.render("index", { user: user });
-    return;
+  db.getAllMeals().then((meals) => {
+    console.log("meals", meals);
+    const userId = req.session.userId;
+    console.log("userId", userId);
+    res.render("index", { meals: meals, user: userId });
+    // db.getUserWithId(userId).then((user) => {
+    //   res.render("index", { user: user, meals: meals });
+    // });
+    // console.log("meals", meals);
+    // res.render("index", {
+    //   meals: meals,
+    // });
   });
 });
 
