@@ -3,21 +3,13 @@ require("dotenv").config();
 
 // Web server config
 const PORT = process.env.PORT || 8080;
+const db = require("./database");
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const bcrypt = require("bcryptjs");
 const cookieSession = require("cookie-session");
-
-// PG database client/connection setup
-const { Pool } = require("pg");
-const dbParams = require("./lib/db.js");
-const db = new Pool(dbParams);
-db.connect();
-db.query(`select * from orders;`).then((res) => {
-  console.log(res.rows);
-})
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -61,7 +53,16 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index");
+  const userId = req.session.userId;
+  if (!userId) {
+    res.render("index", { user: userId });
+    return;
+  }
+  db.getUserWithId(userId).then((user) => {
+    console.log("goin", user);
+    res.render("index", { user: user });
+    return;
+  });
 });
 
 app.listen(PORT, () => {
