@@ -1,3 +1,12 @@
-body .nav-menu{
-  display: flex;
+.meal-list {
+  display:flex;
+  flex-direction: row;
+}
+
+.meals {
+  height:400px;
+  width:400px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
