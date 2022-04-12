@@ -8,7 +8,8 @@ VALUES ('Lanzhou beef noodle soup', 'main_dish', 'Consisting of a flavorful, cle
 ('Lamb shashlik', 'snack', 'a dish of skewered and grilled cubes of lamb', 'https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/07.png?raw=true', 1, 8),
 ('Lamb paomo', 'side_dish', 'hot stew of chopped-up steamed leavened flat bread, cooked in lamb broth and served with lamb meat', 'https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/08.png?raw=true', 12, 15),
 ('Cumin roast rib', 'side_dish', 'chinese style barbecue with cumin', 'https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/09.png?raw=true', 18, 15),
-('hand grab rice', 'main_dish', ' traditional food in west Yunnanm, consist of pork and rice', 'https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/10.png?raw=true', 8, 12);
+('hand grab rice', 'main_dish', 'traditional food in west Yunnanm, consist of pork and rice', 'https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/10.png?raw=true', 8, 12),
+('coke', 'drink', 'pop', 'https://github.com/warlocksa/LHL_food/blob/cz/doc/menu_photo/11.png?raw=true', 2, 0);
 
 INSERT INTO customers (first_name, last_name, phone, email, password)
 VALUES ('Sven', 'Dota', '123456789', 'example1@gmail.com', '123123'),
