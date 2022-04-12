@@ -57,6 +57,16 @@ app.get("/", (req, res) => {
 
 app.get("/orders", (req, res) => {
   res.render("order");
+  db.getAllMeals().then((meals) => {
+    const userId = req.session.userId;
+    if (userId) {
+      db.getUserWithId(userId).then((user) => {
+        res.render("index", { meals: meals, user: user });
+      });
+      return;
+    }
+    res.render("index", { meals: meals, user: userId });
+  });
 });
 
 app.listen(PORT, () => {
