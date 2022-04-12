@@ -7,14 +7,15 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-// const bcrypt = require("bcryptjs");
-// const cookieSession = require("cookie-session");
 
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 db.connect();
+db.query(`select * from customers;`).then((res) => {
+  console.log(res.rows);
+})
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -52,6 +53,10 @@ app.use("/api/widgets", widgetsRoutes(db));
 
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+app.get("/orders", (req, res) => {
+  res.render("order");
 });
 
 app.listen(PORT, () => {
