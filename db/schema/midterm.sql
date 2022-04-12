@@ -8,8 +8,8 @@ CREATE TABLE customers (
   id SERIAL PRIMARY KEY NOT NULL,
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
   phone VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL
 );
 
@@ -24,7 +24,7 @@ CREATE TABLE meals (
 
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY NOT NULL,
-  order_time DATE NOT NULL,
+  order_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   user_id INTEGER REFERENCES customers(id) ON DELETE CASCADE
 );
 
@@ -32,7 +32,8 @@ CREATE TABLE order_lineitems (
   id SERIAL PRIMARY KEY NOT NULL,
   order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
   meal_id INTEGER REFERENCES meals(id) ON DELETE CASCADE,
-  price INTEGER NOT NULL DEFAULT 0
+  price INTEGER NOT NULL,
+  quantity INTEGER NOT NULL DEFAULT 1
 );
 CREATE TABLE order_reviews (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -40,3 +41,14 @@ CREATE TABLE order_reviews (
   order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
   rating SMALLINT NOT NULL DEFAULT 0
 );
+
+
+
+
+
+select meals.photo_url,order_lineitems.price, order_lineitems.quantity
+from orders join order_lineitems
+on orders.id = order_lineitems.order_id
+join meals on order_lineitems.meal_id = meals.id
+where orders.user_id = 4
+group by orders.id, order_lineitems.id,meals.id;

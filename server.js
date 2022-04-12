@@ -54,17 +54,14 @@ app.use("/api/widgets", widgetsRoutes(db));
 
 app.get("/", (req, res) => {
   db.getAllMeals().then((meals) => {
-    console.log("meals", meals);
     const userId = req.session.userId;
-    console.log("userId", userId);
+    if (userId) {
+      db.getUserWithId(userId).then((user) => {
+        res.render("index", { meals: meals, user: user });
+      });
+      return;
+    }
     res.render("index", { meals: meals, user: userId });
-    // db.getUserWithId(userId).then((user) => {
-    //   res.render("index", { user: user, meals: meals });
-    // });
-    // console.log("meals", meals);
-    // res.render("index", {
-    //   meals: meals,
-    // });
   });
 });
 

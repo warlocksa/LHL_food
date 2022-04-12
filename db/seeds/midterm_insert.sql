@@ -14,19 +14,14 @@ INSERT INTO customers (first_name, last_name, phone, email, password)
 VALUES ('Sven', 'Dota', '123456789', 'example1@gmail.com', '123123'),
 ('Shaco', 'Lol', '987654321', 'example2@gmail.com', '123123');
 
-INSERT INTO orders (order_time, user_id)
-VALUES ('2022-03-02', 1),
-('2022-03-31', 2),
-('2022-04-08', 1);
+INSERT INTO orders (user_id)
+VALUES (1),
+(2),
+(1);
 
-INSERT INTO order_lineitems (order_id, meal_id, price)
-VALUES (1, 2, 15),
-(1, 5, 6),
-(2, 1, 15),
-(2, 1, 15),
-(3, 1, 15),
-(3, 5, 6),
-(3, 9, 18);
+INSERT INTO order_lineitems (order_id, meal_id,price, quantity)
+VALUES (1, 2,15,1),
+(1, 5,6,1);
 
 INSERT INTO order_reviews (user_id, order_id, rating)
 VALUES (1, 1, 4),

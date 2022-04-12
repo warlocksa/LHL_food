@@ -37,16 +37,17 @@
               <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><%= meal.description %>
               </h6>
               <div>
-                  <button class="btn btn-block btn-danger">Add to cart</button>
+                  <button id = <%= meal.id %>
+                    class ="btn btn-block btn-danger addCart">Add to cart</button>
               </div>
-              <div class="font-color3"><%= meal.price %></div>
+              <div class="font-color3 price"><%= meal.price %></div>
             </div>
           <% } %>
         </div>
 
 
     </div>
-</div>
+  </div>
 
 <span class = "map" id="map">
 <!-- address and show on the google map -->
