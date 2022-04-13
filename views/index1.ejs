@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!-- font from google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Dancing+Script:wght@500&family=Righteous&family=Source+Sans+Pro:wght@300&display=swap"
+    rel="stylesheet">
+
+  <!-- Latest compiled and minified CSS -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <%- include('partials/_header') %>
+  </header>
+  <div class="homepage" id="homepage">
+    <div class="main-container">
+      <div class="text-container">
+        <div class="logo-container">
+          <img id="logo" src="https://github.com/warlocksa/LHL_food/blob/cz/public/img/logo3.png?raw=true" alt="" />
+        </div>
+        <h1>
+          <p>蘭州拉麵</p>
+          <p>Lanzhou Ramen</p>
+        </h1>
+        <h3>
+          541 Robson St, Vancouver, BC V6B 2B7
+        </h3>
+        <h3>
+          HOURS: Mon - Sun 12PM - 7PM
+          Pick-up only
+        </h3>
+        <h3>Tel:(987)456-1234</h3>
+        <h4>lanzhou@ramenmail.com</h4>
+      </div>
+      <div class="img-restaurant" style="margin: 90px;">
+        <img id="restaurant" src="https://github.com/warlocksa/LHL_food/blob/cz/public/img/restaurant.png?raw=true"
+          alt="" />
+      </div>
+    </div>
+
+    <span class="map" id="map">
+      <!-- address and show on the google map -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.792635074994!2d-123.12009438455186!3d49.28032637933113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486717e5a135003%3A0xc14c9af4a110cb1f!2s541%20Robson%20St%2C%20Vancouver%2C%20BC%20V6B%202B7!5e0!3m2!1sen!2sca!4v1649608190320!5m2!1sen!2sca"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </span>
+    <div class="sub-container">
+      <div class="story-container">
+        <h1>ABOUT 蘭州拉麵</h1>
+        <p>is a type of soft wheat flour Chinese noodle. noodle is made by twisting, stretching and folding the dough
+          into
+          strands, using the weight of the dough.The length and thickness of the strands depends on the number of times
+          the dough is folded. This unique method of making noodles originated in China. The Songshi Yangsheng Bu, which
+          was written by Song Xu and dates back to 1504, has the earliest description of the method to make lamian.</p>
+      </div>
+      <img id="cooking2" src="https://github.com/warlocksa/LHL_food/blob/cz/public/img/cooking2.png?raw=true" alt="" />
+    </div>
+    <footer>
+      Enjoy the taste of the Northwest China
+    </footer>
+</body>
+</div>
+<div id="orderpage">
+  <nav class="navbar navbar-default navbar-inverse" role="navigation" id="menubar">
+    <ul class="nav navbar-nav">
+      <li><a href="#maindish">Main Dishes</a></li>
+      <li><a href="#sidedish">Side Dishes</a></li>
+      <li><a href="#snack">Snacks</a></li>
+      <li><a href="#drink">Drinks</a></li>
+      <li><i class="fa-solid fa-cart-shopping" id="cart" href="/cart.ejs"></i></li>
+    </ul>
+  </nav>
+  <h1>Recommended</h1>
+  <div class="recommended-list">
+    <div class="meals" id="1">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        Lanzhou beef noodle soup
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/01.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        Consisting of a flavorful, clear broth, shaved beef, tender Chinese radish slices, lots of cilantro and
+        scallion, deep red chili oil, and chewy handmade noodles
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 15
+      </div>
+    </div>
+    <div class="meals" id="8">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        Lamb paomo
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/08.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        hot stew of chopped-up steamed leavened flat bread, cooked in lamb broth and served with lamb meat
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 12
+      </div>
+    </div>
+  </div>
+  <h1>Main Dishes</h1>
+  <div class="maindish-list">
+
+    <div class="meals" id="1">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        Lanzhou beef noodle soup
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/01.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        Consisting of a flavorful, clear broth, shaved beef, tender Chinese radish slices, lots of cilantro and
+        scallion, deep red chili oil, and chewy handmade noodles
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 15
+      </div>
+    </div>
+    <div class="meals" id="2">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        Qishan sour noodle soup
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/02.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        Qishan Noodles with Minced Pork (Saozi Noodles), is a traditional wheaten food in the Northwest part of China.
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 15
+      </div>
+    </div>
+    <div class="meals" id="3">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        Liangpi
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/03.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        noodle-like Chinese dish made from wheat or rice flour.
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 7
+      </div>
+    </div>
+    <div class="meals" id="10">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        hand grab rice
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/10.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        traditional food in west Yunnanm, consist of pork and rice
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 8
+      </div>
+    </div>
+  </div>
+  <h1>Side Dishes</h1>
+  <div class="sidedish-list">
+    <div class="meals" id="4">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        Lamb soup
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/04.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        lamb soup recipe that produces a warm broth with rice, leek and mushrooms.
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 10
+      </div>
+    </div>
+    <div class="meals" id="6">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        Xinjiang big plate chicken
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/06.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        mixed hot chili peppers with chicken and potatoes in an attempt to reproduce a Sichuan taste
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 20
+      </div>
+    </div>
+    <div class="meals" id="8">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        Lamb paomo
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/08.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        hot stew of chopped-up steamed leavened flat bread, cooked in lamb broth and served with lamb meat
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 12
+      </div>
+    </div>
+
+    <div class="meals" id="9">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        Cumin roast rib
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/09.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        chinese style barbecue with cumin
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 18
+      </div>
+    </div>
+
+  </div>
+  <h1>Snacks</h1>
+  <div class="snack-list">
+    <div class="meals" id="5">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        rougamo
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/05.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        Chinese hamburger.
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 6
+      </div>
+    </div>
+    <div class="meals" id="7">
+      <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+        Lamb shashlik
+      </h3>
+      <img src='https://github.com/warlocksa/LHL_food/blob/day1/doc/menu%20photo/07.png?raw=true'
+        style='width:250px; height:200px;'>
+      <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        a dish of skewered and grilled cubes of lamb
+      </h6>
+      <div>
+        <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+      </div>
+      <div class="font-color3 price">
+        $ 1
+      </div>
+    </div>
+  </div>
+  <h1>Drinks</h1>
+  <div class="drink-list">
+  </div>
+  <div class="meals" id="7">
+    <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+      Coke
+    </h3>
+    <img src='https://github.com/warlocksa/LHL_food/blob/cz/doc/menu_photo/11.png?raw=true'
+      style='width:250px; height:200px;'>
+    <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+      pop
+    </h6>
+    <div>
+      <button id=1 class="btn btn-block btn-danger addCart">Add to cart</button>
+    </div>
+    <div class="font-color3 price">
+      $ 2
+    </div>
+  </div>
+</div>
+</div>
+
+</html>
