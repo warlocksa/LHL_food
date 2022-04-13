@@ -87,7 +87,7 @@ app.get("/text", (req, res) => {
         from: '+19894030471', // From a valid Twilio number
       })
       .then((message) => console.log(message.sid)) 
-  }, 3000);
+  }, 10000);
 
     db.getAllMeals().then((meals) => {
       const userId = req.session.userId;
