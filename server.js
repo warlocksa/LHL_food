@@ -12,9 +12,10 @@ const morgan = require("morgan");
 const bcrypt = require("bcryptjs");
 const cookieSession = require("cookie-session");
 const twilio = require('twilio');
-const accountSid = 'AC2e8b9cec1c0364da055ec16b66553f2d';
-const authToken = '5b71a469e444d73ea368847373d9cf07';
-const client = new twilio(accountSid, authToken);
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+
+const client = require('twilio')(accountSid, authToken)
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
