@@ -58,7 +58,7 @@ module.exports = (db) => {
   });
 
   // delete an order line item
-  router.post("/cart/delete", (req, res) => {
+  router.delete("/cart/delete", (req, res) => {
     const userId = req.session.userId;
     const meal_id = req.body.id;
     OrderExist(userId).then((order) => {

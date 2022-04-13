@@ -205,3 +205,27 @@ const removeOrderItem = function (item_id) {
     });
 };
 exports.removeOrderItem = removeOrderItem;
+
+
+// update an quantity of an order item
+
+const updateOrderItem = function (item_id) {
+  return db
+    .query(
+      `DELETE FROM order_lineitems WHERE id = $1;
+  `,
+      [item_id]
+    )
+    .then((result) => {
+      console.log("delete", result);
+      if (result) {
+        console.log("delete2", result);
+        console.log("item_id", item_id);
+        return result;
+      }
+    })
+    .catch((err) => {
+      console.log("error when deleting orderline items", err);
+    });
+};
+exports.removeOrderItem = removeOrderItem;

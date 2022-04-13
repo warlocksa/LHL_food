@@ -9,7 +9,7 @@ $(() => {
     const meal_id = $(this).attr("id");
     $.ajax({
       url: "/api/widgets/cart/delete",
-      method: "POST",
+      method: "DELETE",
       data: { id: meal_id },
     }).then(() => {
       let subtotal = parseInt(
@@ -27,35 +27,6 @@ $(() => {
       $(this).parent().parent().remove();
     });
   });
-
-  // const loadOrder = function (event) {
-  //   $.ajax({ url: "api/widgets/cart", method: "GET" }).then(function () {
-  //     // renderOrder(data);
-  //   });
-  // };
-
-  // function createMealElement(data) {
-  //   const $meal = $(`<article class="tweet">
-  //   <header class = "all-tweet-header">
-  //          <div class = "all-tweet-header-left">
-  //           <img src=${data.name}>
-  //           <a rel="author">${data.price}</a>
-  //          </div>
-  //          <a rel="author">${data.qty}</a>
-  //   </header>
-  //   </article>`);
-  //   return $meal;
-  // }
-  // function renderOrder(arr) {
-  //   const $orderContainer = $("#orderItem-container");
-  //   $orderContainer.empty();
-  //   for (const data of arr) {
-  //     const $newmeal = createMealElement(data);
-  //     $orderContainer.prepend($newmeal);
-  //   }
-  //   return $orderContainer;
-  // }
-
   //add item to cart
   $(".addCart").click(function () {
     const id = $(this).attr("id");
@@ -68,4 +39,71 @@ $(() => {
       data: { id, price },
     }).then(() => {});
   });
+
+  //
+
+  const TwilioSMS = (function ($) {
+    const accountSid = "AC2e8b9cec1c0364da055ec16b66553f2d"; // replace with your account SID
+    const authToken = "74b9ca9af5e13abc7455da85e4f3f5bb"; // replace with your auth token
+
+    const testEndpoint =
+      "https://api.twilio.com/2010-04-01/Accounts/" +
+      accountSid +
+      "/SMS/Messages.json";
+    const liveEndpoint =
+      "https://api.twilio.com/2010-04-01/Accounts/" +
+      accountSid +
+      "/Messages.json";
+
+    const sendMessage = function (to, from, body, successCallback, failCallback) {
+      const data = {
+        To: to,
+        From: from,
+        Body: body,
+      };
+
+      $.ajax({
+        method: "POST",
+        url: testEndpoint,
+        //url: liveEndpoint, // uncomment this in production and comment the above line
+        data: data,
+        dataType: "json",
+        contentType: "application/x-www-form-urlencoded", // !
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader(
+            "Authorization",
+            "Basic " + btoa(accountSid + ":" + authToken) // !
+          );
+        },
+        success: function (data) {
+          console.log("Got response: %o", data);
+
+          if (typeof successCallback == "function") successCallback(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.log("Request failed: " + textStatus + ", " + errorThrown);
+
+          if (typeof failCallback == "function")
+            failCallback(jqXHR, textStatus, errorThrown);
+        },
+      });
+    };
+    return {
+      sendMessage: sendMessage,
+    };
+  })(jQuery);
+
+
+  TwilioSMS.sendMessage(
+    '+17808506903',
+    '+19894030471', // Twilio allowed test number
+    'Hey Jenny! Good luck on the bar exam!',
+    function ok() {
+      console.log("Message sent!");
+    },
+    function fail() {
+      console.log("Failed to send your message!");
+    }
+  );
+
 });

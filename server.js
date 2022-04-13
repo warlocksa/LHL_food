@@ -1,6 +1,10 @@
 // load .env data into process.env
 require("dotenv").config();
 
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require("twilio")(accountSid, authToken);
+
 // Web server config
 const PORT = process.env.PORT || 8080;
 const db = require("./database");
@@ -47,6 +51,25 @@ const widgetsRoutes = require("./routes/widgets");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
+
+app.get("/text", (req, res) => {
+  client.messages
+    .create({
+      body: "Hello order is coming",
+      to: "+17808506903", // Text this number
+      from: "+19894030471", // From a valid Twilio number
+    })
+    .then((message) => console.log(message.sid));
+  setTimeout(() => {
+    client.messages
+      .create({
+        body: "Hello, your order is complete",
+        to: "+17808506903", // Text this number
+        from: "+19894030471", // From a valid Twilio number
+      })
+      .then((message) => console.log(message.sid));
+  }, 3000);
+});
 
 // Home page
 // Warning: avoid creating more routes in this file!
