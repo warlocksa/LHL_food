@@ -80,3 +80,26 @@ module.exports = (db) => {
   });
   return router;
 };
+
+router.post("/account", (req, res)=>{
+  OrderExist(userId).then((order) => {
+    if (!order) {
+      return null
+    } else {
+      db.getAllOrderItems(userId).then((items) => {
+          res.send(items, orders);
+    })
+  }}) 
+})
+router.get("/account", (req, res) => {
+  const userId = req.session.userId;
+  if(!userId) {
+    res.render("/")
+  }
+  if(userId){
+  db.getAllOrderItems(userId).then((items) => {
+    db.getOrderWithUser(userId).then((user) => {
+      res.render("account", items, user)
+    })
+  })}
+})

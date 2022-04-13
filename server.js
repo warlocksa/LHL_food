@@ -79,15 +79,6 @@ app.get("/text", (req, res) => {
       from: '+19894030471', // From a valid Twilio number
     })
     .then((message) => console.log(message.sid))
-  setTimeout(() => { 
-    client.messages
-      .create({
-        body: 'Hello, your order is complete',
-        to: '+17808506903', // Text this number
-        from: '+19894030471', // From a valid Twilio number
-      })
-      .then((message) => console.log(message.sid)) 
-  }, 10000);
 
     db.getAllMeals().then((meals) => {
       const userId = req.session.userId;
@@ -97,7 +88,7 @@ app.get("/text", (req, res) => {
         });
         return;
       }
-    res.render("index", { meals: meals, user: userId })
+      res.redirect("index")
 })
 })
 

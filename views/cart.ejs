@@ -73,7 +73,7 @@
                             <h3>Total</h3>
                         </div>
                         <div class="divTableCol">
-                            <h3><strong id="total">$ <%= total %>.00</strong></h3>
+                            <h3>$ <strong id="total"><%= total.toFixed(2) %></strong></h3>
                         </div>
                     </div>
                     <div class="rowTable">
@@ -81,15 +81,11 @@
                         <div class="divTableCol"></div>
                         <div class="divTableCol"></div>
                         <div class="divTableCol">
-                            <button type="button" class="btn btn-success">Place Order</span></button>
+                            <button type="submit" class="btn btn-success" id="place-order">Place Order</span></button>
                         </div>
                     </div>
         </div>
     </div>
-
-
-
-
     <section id="orderItem-container">
     </section>
 </body>
