@@ -18,7 +18,7 @@ body {
   padding: 50px;
 }
 
-nav {
+#nav-bar {
   position: fixed;
   top: 0;
   width: 100%;
@@ -177,5 +177,7 @@ nav {
   display: table-row-group;
 }
 
-
+.container {
+  margin-top: 150px;
+}
 

@@ -19,9 +19,6 @@ const getOrderWithUser = function (user_id) {
     )
     .then((result) => {
       const orders = result.rows;
-      if (orders.length < 1) {
-        return null;
-      }
       return orders[0];
     })
     .catch((err) => {
@@ -44,9 +41,6 @@ const getUserWithEmail = function (email) {
     )
     .then((result) => {
       const userset = result.rows;
-      if (userset.length < 1) {
-        return null;
-      }
       return userset[0];
     })
     .catch((err) => {
@@ -68,9 +62,6 @@ const getUserWithId = function (id) {
     )
     .then((result) => {
       const userset = result.rows;
-      if (userset.length < 1) {
-        return null;
-      }
       return userset[0];
     })
     .catch((err) => {
@@ -155,9 +146,9 @@ const createOrderItem = function (order_id, meal_id, meal_price) {
       [order_id, meal_id, meal_price]
     )
     .then((result) => {
-      console.log("result".result);
+      console.log("result", result);
       if (result) {
-        console.log("result".result);
+        console.log("result", result);
         return result;
       }
     })
@@ -167,12 +158,12 @@ const createOrderItem = function (order_id, meal_id, meal_price) {
 };
 exports.createOrderItem = createOrderItem;
 
-//Get all order items with userid
+//Get all order line items with userid
 const getAllOrderItems = function (id) {
   return db
     .query(
       `
-      select meals.photo_url,meals.name,order_lineitems.price, order_lineitems.quantity
+      select meals.photo_url,meals.name, order_lineitems.id, order_lineitems.price, order_lineitems.quantity,sum(order_lineitems.price * order_lineitems.quantity) AS total
 from orders join order_lineitems
 on orders.id = order_lineitems.order_id
 join meals on order_lineitems.meal_id = meals.id
@@ -183,9 +174,6 @@ group by orders.id, order_lineitems.id,meals.id;
     )
     .then((result) => {
       const itemset = result.rows;
-      if (itemset.length < 1) {
-        return null;
-      }
       console.log("allorderitems", itemset);
       return itemset;
     })
@@ -194,3 +182,50 @@ group by orders.id, order_lineitems.id,meals.id;
     });
 };
 exports.getAllOrderItems = getAllOrderItems;
+
+//Remove an order line item
+
+const removeOrderItem = function (item_id) {
+  return db
+    .query(
+      `DELETE FROM order_lineitems WHERE id = $1;
+  `,
+      [item_id]
+    )
+    .then((result) => {
+      console.log("delete", result);
+      if (result) {
+        console.log("delete2", result);
+        console.log("item_id", item_id);
+        return result;
+      }
+    })
+    .catch((err) => {
+      console.log("error when deleting orderline items", err);
+    });
+};
+exports.removeOrderItem = removeOrderItem;
+
+
+// update an quantity of an order item
+
+const updateOrderItem = function (item_id) {
+  return db
+    .query(
+      `DELETE FROM order_lineitems WHERE id = $1;
+  `,
+      [item_id]
+    )
+    .then((result) => {
+      console.log("delete", result);
+      if (result) {
+        console.log("delete2", result);
+        console.log("item_id", item_id);
+        return result;
+      }
+    })
+    .catch((err) => {
+      console.log("error when deleting orderline items", err);
+    });
+};
+exports.removeOrderItem = removeOrderItem;

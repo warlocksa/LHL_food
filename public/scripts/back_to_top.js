@@ -14,6 +14,8 @@
 // dotenv.config();
 // console.log(dotenv)
 
+// const res = require("express/lib/response");
+
 $(document).ready(function () {
   console.log('it works')
   $("#top").hide();
@@ -35,11 +37,9 @@ $(document).ready(function () {
     $("#menu-page").show("slow");
     $("#homepage").hide();
   })
-  $("#home-list").click(function () {
-    event.preventDefault();
-    $("#homepage").show("slow");
-    $("#menu-page").hide();
-  })
+  // $("#home-list").click(function () {
+  //  res.render("/")
+  // })
   // $("#place-order").click(() => {
   //   console.log(cl)
   //   client.messages
