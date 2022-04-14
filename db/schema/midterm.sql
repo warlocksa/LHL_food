@@ -44,26 +44,24 @@ CREATE TABLE order_reviews (
 
 
 
+-- select meals.photo_url,order_lineitems.price, order_lineitems.quantity
+-- from orders join order_lineitems
+-- on orders.id = order_lineitems.order_id
+-- join meals on order_lineitems.meal_id = meals.id
+-- where orders.user_id = 4
+-- group by orders.id, order_lineitems.id,meals.id;
 
 
-select meals.photo_url,order_lineitems.price, order_lineitems.quantity
-from orders join order_lineitems
-on orders.id = order_lineitems.order_id
-join meals on order_lineitems.meal_id = meals.id
-where orders.user_id = 4
-group by orders.id, order_lineitems.id,meals.id;
+-- select meals.photo_url,meals.name,order_lineitems.id,order_lineitems.price, order_lineitems.quantity,
+-- sum(order_lineitems.price*order_lineitems.quantity)
+-- from order_lineitems join orders on order_lineitems.order_id = orders.id
+-- join meals on order_lineitems.meal_id = meals.id
+-- where user_id= 3
+-- group by orders.id,meals.id, order_lineitems.id;
 
 
-select meals.photo_url,meals.name,order_lineitems.id,order_lineitems.price, order_lineitems.quantity,
-sum(order_lineitems.price*order_lineitems.quantity)
-from order_lineitems join orders on order_lineitems.order_id = orders.id
-join meals on order_lineitems.meal_id = meals.id
-where user_id= 3
-group by orders.id,meals.id, order_lineitems.id;
-
-
-select sum(order_lineitems.price * order_lineitems.quantity) AS total
-from orders join order_lineitems
-on orders.id = order_lineitems.order_id
-where orders.user_id = 3
-group by orders.id
+-- select sum(order_lineitems.price * order_lineitems.quantity) AS total
+-- from orders join order_lineitems
+-- on orders.id = order_lineitems.order_id
+-- where orders.user_id = 3
+-- group by orders.id

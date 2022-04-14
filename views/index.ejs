@@ -63,6 +63,7 @@
   </header>
   <section id="hero">
     <div class="hero-container">
+        <!--=======Home Section=======-->
       <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
         <div class="carousel-inner" role="listbox">
@@ -83,7 +84,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section><!-- End Home Section -->
 
   <div class="about-container">
      <!--=======About Section=======-->
@@ -124,6 +125,7 @@
       </section><!-- End About Section -->
   </div>
 <div class="menu-page" id="menu-page">
+  <!-- Menu Section -->
   <sec id="menu" class="menu">
   <div class="section-title" id="menu-title">
     <h2>Check our tasty <span>Menu</span></h2>
@@ -141,27 +143,26 @@
             <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
               <%= meal.description %>
             </h6>
-            <div class="font-color3 price" id="meal-price">
-              $ <%= meal.price %>
-            </div>
+            <div class="font-color3 price" id="meal-price">$<%= meal.price %></div>
             <div>
-              <button id=<%=meal.id %>
+              <button id=<%=meal.id %> 
                 class ="btn btn-block btn-danger addCart">Add to cart</button>
             </div>
           </div>
           <% } %>
       </div>
   </div>
-  </sec>
+  </sec><!-- End Menu Section -->
 </div>
       <span class="map" id="map">
+        <!-- Map Section -->
   <h2>Our Location</h2>
     <!-- address and show on the google map -->
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.792635074994!2d-123.12009438455186!3d49.28032637933113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486717e5a135003%3A0xc14c9af4a110cb1f!2s541%20Robson%20St%2C%20Vancouver%2C%20BC%20V6B%202B7!5e0!3m2!1sen!2sca!4v1649608190320!5m2!1sen!2sca"
       width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </span>
+  </span><!-- End Map Section -->
 
 <!-- ======= Gallery Section ======= -->
 <section id="gallery" class="gallery">
@@ -204,9 +205,12 @@
           </a>
         </div>
       </div>
+    </div>
+  </div><!-- End Gallery Section -->
+</section>
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center active"><i
-    class="bi bi-arrow-up-short"></i></a>
+<a href="#" class="back-to-top active" id="top-button">
+    <i class="fas fa-arrow-up"></i></a>
   
 <footer>
 <a href="#">Welcome</a>

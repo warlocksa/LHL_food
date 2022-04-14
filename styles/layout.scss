@@ -108,11 +108,15 @@ h6 {
 h6 :focus {
   text-overflow: clip;
 }
+#top-button i{
+    margin-top: 18px;
+    margin-left: 9px;
+}
 
 footer {
   background: #fffaf3;
   font-size: 35px;
     font-family: 'Dancing Script', cursive;
     text-align: center;
-    color: orange;
+    color: orange;    
 }
