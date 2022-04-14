@@ -1,103 +1,49 @@
-<div
-  class="modal fade"
-  id="myModal2"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="myModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <form
-          class="pb-modalreglog-form-reg"
-          method="POST"
-          action="/api/users/signup"
-        >
+        <form class="pb-modalreglog-form-reg" method="POST" action="/api/users/signup">
           <div class="form-group">
             <div id="pb-modalreglog-progressbar"></div>
           </div>
           <div class="form-group">
             <label for="firstname">First Name</label>
             <div class="input-group pb-modalreglog-input-group">
-              <span class="input-group-addon"
-                ><span class="glyphicon glyphicon-user"></span
-              ></span>
-              <input
-                type="firstname"
-                class="form-control"
-                id="inputFirstname"
-                name="firstname"
-                placeholder="First Name*"
-              />
+              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+              <input type="firstname" class="form-control" id="inputFirstname" name="firstname"
+                placeholder="First Name*" />
             </div>
           </div>
           <div class="form-group">
             <label for="lastname">Last Name</label>
             <div class="input-group pb-modalreglog-input-group">
-              <span class="input-group-addon"
-                ><span class="glyphicon glyphicon-user"></span
-              ></span>
-              <input
-                type="lastname"
-                class="form-control"
-                id="inputlastname"
-                name="lastname"
-                placeholder="Last Name*"
-              />
+              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+              <input type="lastname" class="form-control" id="inputlastname" name="lastname" placeholder="Last Name*" />
             </div>
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
             <div class="input-group pb-modalreglog-input-group">
-              <span class="input-group-addon"
-                ><span class="glyphicon glyphicon-user"></span
-              ></span>
-              <input
-                type="email"
-                class="form-control"
-                name="email"
-                id="inputEmail"
-                placeholder="Email*"
-              />
+              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+              <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email*" />
             </div>
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
             <div class="input-group pb-modalreglog-input-group">
-              <span class="input-group-addon"
-                ><span class="glyphicon glyphicon-phone"></span
-              ></span>
-              <input
-                type="phone"
-                class="form-control"
-                name="phone"
-                id="inputPhone"
-                placeholder="Phone Number*"
-              />
+              <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+              <input type="phone" class="form-control" name="phone" id="inputPhone" placeholder="Phone Number*" />
             </div>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <div class="input-group pb-modalreglog-input-group">
-              <span class="input-group-addon"
-                ><span class="glyphicon glyphicon-lock"></span
-              ></span>
-              <input
-                type="password"
-                class="form-control"
-                id="inputPws"
-                name="password"
-                placeholder="Password*"
-              />
+              <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+              <input type="password" class="form-control" id="inputPws" name="password" placeholder="Password*" />
             </div>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
               Close
             </button>
             <button type="submit" class="btn btn-primary">Sign up</button>
@@ -115,7 +61,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <a href="/">
-      <img id="logo" src="https://github.com/warlocksa/LHL_food/blob/cz/public/img/logo2.png?raw=true" alt=""/>
+        <img id="logo" src="https://github.com/warlocksa/LHL_food/blob/cz/public/img/logo2.png?raw=true" alt="" />
       </a>
     </div>
 
@@ -123,109 +69,84 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active" id="home-list"><a href="/">HOME</a></li>
-        <li class="active" ><a href="#about">ABOUT US</a></li>
-        <li class="active" id="menu-list"><a href="#menu">ORDER NOW</a></li>
-                <li class="active"><a href="#map">MAP</a></li>
-        <li class="active" ><a href="#gallery">GALLERY</a></li>
+        <li class="active"><a href="/#about">ABOUT US</a></li>
+        <li class="active" id="menu-list"><a href="/#menu">ORDER NOW</a></li>
+        <li class="active"><a href="/#map">MAP</a></li>
+        <li class="active"><a href="/#gallery">GALLERY</a></li>
 
       </ul>
-      
-       <%if (!user) { %>
-      <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text">Already have an account?</p></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-            ><b>Login</b> <span class="caret"></span
-          ></a>
-          <ul id="login-dp" class="dropdown-menu">
-            <li>
-              <div class="row">
-                <div class="col-md-12">
-                  Login via
-                  <div class="social-buttons">
-                    <a href="#" class="btn btn-fb"
-                      ><i class="fa fa-facebook"></i> Facebook</a
-                    >
-                    <a href="#" class="btn btn-tw"
-                      ><i class="fa fa-twitter"></i> Twitter</a
-                    >
-                  </div>
-                  or
-                  <form
-                    class="form"
-                    role="form"
-                    method="POST"
-                    action="/api/users/login"
-                    accept-charset="UTF-8"
-                    id="login-nav"
-                  >
-                    <div class="form-group">
-                      <label class="sr-only" for="exampleInputEmail2"
-                        >Email address</label
-                      >
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="exampleInputEmail2"
-                        name="email"
-                        placeholder="Email address"
-                        required
-                      />
+
+      <%if (!user) { %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <p class="navbar-text">Already have an account?</p>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+            <ul id="login-dp" class="dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    Login via
+                    <div class="social-buttons">
+                      <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                      <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                     </div>
-                    <div class="form-group">
-                      <label class="sr-only" for="exampleInputPassword2"
-                        >Password</label
-                      >
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="exampleInputPassword2"
-                        placeholder="Password"
-                        name="password"
-                        required
-                      />
-                      <div class="help-block text-right">
-                        <a href="">Forget the password ?</a>
+                    or
+                    <form class="form" role="form" method="POST" action="/api/users/login" accept-charset="UTF-8"
+                      id="login-nav">
+                      <div class="form-group">
+                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail2" name="email"
+                          placeholder="Email address" required />
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-primary btn-block">
-                        Sign in
-                      </button>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox" /> keep me logged-in
-                      </label>
-                    </div>
-                  </form>
+                      <div class="form-group">
+                        <label class="sr-only" for="exampleInputPassword2">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password"
+                          name="password" required />
+                        <div class="help-block text-right">
+                          <a href="">Forget the password ?</a>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">
+                          Sign in
+                        </button>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" /> keep me logged-in
+                        </label>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- toggle signup modal -->
+                  <div class="bottom text-center">
+                    New here ?
+                    <button class="btn btn-primary pb-modalreglog-submit" data-toggle="modal" data-target="#myModal2">
+                      <b>Sign Up</b>
+                    </button>
+                  </div>
                 </div>
-                <!-- toggle signup modal -->
-                <div class="bottom text-center">
-                  New here ?
-                  <button
-                    class="btn btn-primary pb-modalreglog-submit"
-                    data-toggle="modal"
-                    data-target="#myModal2"
-                  >
-                    <b>Sign Up</b>
-                  </button>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </li>
-      </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
         <% } else{ %>
-          <button style = "margin-left: 110px; margin-top:15px;" class = "cart nav navbar-nav navbar-left" ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="green" class="bi bi-cart" viewBox="0 0 16 16">
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-          </svg>
+          <button style="margin-left: 10px; margin-top:15px;" class="cart nav navbar-nav navbar-left"
+            id="cart-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="green"
+              class="bi bi-cart" viewBox="0 0 16 16">
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </svg>
           </button>
-          <form class="nav navbar-nav navbar-right" method="POST" action="/api/users/logout">
-            <label class="navbar-text">Welcome <%= user.first_name %>!
-            <button type="submit" class="btn btn-default">Logout</button>
+          <div id="account-part">
+            <form class="nav navbar-nav navbar-right" method="POST" action="/api/users/logout">
+              <label class="navbar-text" id="">Welcome <%= user.first_name %>!</label>
+              <button type="submit" class="btn btn-default">Logout</button>
+          </div>
           </form>
-        <% } %>
+          <% } %>
     </div>
     <!-- /.navbar-collapse -->
   </div>

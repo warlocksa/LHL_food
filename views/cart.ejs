@@ -10,13 +10,13 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
-<!-- Latest compiled and minified CSS -->
+  <!-- Latest compiled and minified CSS -->
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- Latest compiled and minified JavaScript -->
+  <!-- Latest compiled and minified JavaScript -->
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -24,65 +24,73 @@
   <header>
     <%- include('partials/_header') %>
   </header>
-  <div class="container">
-    <div class="divTable div-hover">
-            <div class="rowTable bg-primary text-white pb-2">
-                <div class="divTableCol">Order</div>
-                <div class="divTableCol">Quantity</div>
-                <div class="divTableCol">Total</div>
-                <div class="divTableCol"></div>
+  <div id="cart-page"
+    style="background-image: url(https://github.com/warlocksa/LHL_food/blob/cz/public/img/background.jpg?raw=true);">
+    <div class="container" id="cart-container">
+      <div class="divTable div-hover">
+        <div class="rowTable bg-primary text-white pb-2" id="cart-nav">
+          <div class="divTableCol">Order</div>
+          <div class="divTableCol">Quantity</div>
+          <div class="divTableCol">Total</div>
+          <div class="divTableCol"></div>
+        </div>
+        <% for (const item of items) { %>
+          <div class="rowTable" id="cart-item">
+            <div class="divTableCol">
+              <div class="media">
+                <a class="thumbnail pull-left mr-2" href="#">
+                  <img class="media-object" src=<%=item.photo_url %>
+                  style="width: 72px; height: 72px;" />
+                </a>
+                <div class="media-body">
+                </div>
+                <h5 class="media-heading">
+                  <%= item.name %>
+                </h5>
+              </div>
             </div>
-            <% for (const item of items) { %>
+            <div class="divTableCol">
+              <strong>
+                <%= item.quantity %>
+              </strong>
+            </div>
+            <div class="divTableCol  subtotal">
+              <strong>$<%= item.price %></strong>
+            </div>
+            <div class="divTableCol">
+              <button id=<%=item.id %>
+                type="button" class="btn btn-danger remove"><span class="fa fa-remove"></span> Remove</button>
+            </div>
+          </div>
+          <% } %>
             <div class="rowTable">
-                <div class="divTableCol">
-                    <div class="media">
-                        <a class="thumbnail pull-left mr-2" href="#">
-                            <img class="media-object" src= <%= item.photo_url %>
-                            style="width: 72px; height: 72px;" />
-                        </a>
-                        <div class="media-body">
-                        </div>
-                        <h5 class="media-heading"><%= item.name %> </h5>
-                    </div>
-                </div>
-                <div class="divTableCol">
-                  <strong><%= item.quantity %></strong>
-                </div>
-                <div  class="divTableCol  subtotal">
-                  <strong>$<%= item.price %></strong>
-                </div>
-                <div class="divTableCol" >
-                    <button id = <%= item.id %>
-                      type="button" class="btn btn-danger remove"><span class="fa fa-remove"></span> Remove</button>
-                </div>
-            </div>
-            <% } %>
-
-
-            <div class="rowTable">
-                <div class="divTableCol"></div>
-                <div class="divTableCol"></div>
-
-                <div class="divTableCol"><h3>Total</h3></div>
-                <div class="divTableCol">
-                    <h3><strong id = "total">$ <%= total %>.00</strong></h3>
-                </div>
+              <div class="divTableCol"></div>
+              <div class="divTableCol"></div>
+              <div class="divTableCol">
+                <h3>Total</h3>
+              </div>
+              <div class="divTableCol">
+                <h3><strong id="total">$ <%= total %>.00</strong></h3>
+              </div>
             </div>
             <div class="rowTable">
-                <div class="divTableCol"></div>
-                <div class="divTableCol"></div>
-                <div class="divTableCol"></div>
-                <div class="divTableCol">
-                    <button id = "place-order" type="button" class="btn btn-success">Place Order</span></button>
-                </div>
+              <div class="divTableCol"></div>
+              <div class="divTableCol"></div>
+              <div class="divTableCol"></div>
+              <div class="divTableCol">
+                <button id="place-order" type="button" class="btn btn-success">Place Order</span></button>
+              </div>
             </div>
+      </div>
+      <div id="back-to-shop">
+        <p class="lead">
+          <a class="btn btn-primary btn-sm" href="/#menu" role="button">Continue Shopping</a>
+        </p>
+      </div>
     </div>
-</div>
-
-
-
-
-  <section id = "orderItem-container">
-  </section>
+  <section id="orderItem-container">
+    </section>
+  </div>
 </body>
+
 </html>

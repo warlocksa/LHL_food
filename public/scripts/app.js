@@ -62,7 +62,7 @@ $(() => {
       );
       let total = parseInt($("#total").text().slice(1));
       console.log(total);
-      $("#total").text(`$${total - subtotal}.00`);
+      $("#total").text(`$ ${total - subtotal}.00`);
       $(this).parent().parent().remove();
     });
   });
@@ -77,5 +77,7 @@ $(() => {
       method: "POST",
       data: { id, price },
     }).then(() => {});
+    $("#addMessage").text("Added it successful").fadeIn()
+        setTimeout(function(){$("#addMessage").hide()}, 1000)
   });
 });
