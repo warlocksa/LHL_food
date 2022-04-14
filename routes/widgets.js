@@ -39,6 +39,14 @@ module.exports = (db) => {
       });
     });
   });
+
+  router.get("/order_confirmation", (req, res) => {
+    const userId = req.session.userId;
+    db.getUserWithId(userId).then((user) => {
+      res.render("order", { user });
+    });
+  });
+
   router.get("/cart", (req, res) => {
     const userId = req.session.userId;
     db.getAllOrderItems(userId).then((items) => {
@@ -47,10 +55,6 @@ module.exports = (db) => {
         for (const item of items) {
           total += item.price * item.quantity;
         }
-        // const total = items.reduce((previousValue, currentValue) => {
-        //    previousValue.quantity*previousValue.price + currentValue
-        // },0)
-        // console.log("total", total);
         console.log("This is the total", total);
         res.render("cart", { items, user, total });
       });

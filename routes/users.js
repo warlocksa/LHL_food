@@ -18,6 +18,16 @@ module.exports = (db) => {
       return null;
     });
   };
+  router.get("/staff", (req, res) => {
+    db.getLastOrders().then((o) => {
+      const meal_id = o.id;
+      console.log("meal_id ", meal_id);
+      db.getOrderItems(meal_id).then((items) => {
+        console.log("items", items);
+        res.render("staff", { items });
+      });
+    });
+  });
   router.post("/login", (req, res) => {
     console.log(req.body);
     const { email, password } = req.body;
@@ -29,6 +39,10 @@ module.exports = (db) => {
         }
         console.log("log in user", user);
         req.session.userId = user.id;
+        if (email === "xinwang213z@gmail.com") {
+          res.redirect("/api/users/staff");
+          return;
+        }
         res.redirect("/");
       })
       .catch((e) => res.send(e));

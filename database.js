@@ -206,26 +206,50 @@ const removeOrderItem = function (item_id) {
 };
 exports.removeOrderItem = removeOrderItem;
 
-
-// update an quantity of an order item
-
-const updateOrderItem = function (item_id) {
+//get last order
+const getLastOrders = function () {
   return db
     .query(
-      `DELETE FROM order_lineitems WHERE id = $1;
-  `,
-      [item_id]
+      `SELECT * FROM orders
+      ORDER BY order_time DESC
+      LIMIT 1;
+      `
     )
     .then((result) => {
-      console.log("delete", result);
-      if (result) {
-        console.log("delete2", result);
-        console.log("item_id", item_id);
-        return result;
-      }
+      const orders = result.rows[0];
+      return orders;
     })
     .catch((err) => {
-      console.log("error when deleting orderline items", err);
+      console.log(err);
     });
 };
-exports.removeOrderItem = removeOrderItem;
+exports.getLastOrders = getLastOrders;
+
+//get order items with order id
+const getOrderItems = function (id) {
+  return db
+    .query(
+      `SELECT * FROM order_lineitems
+      JOIN meals ON meals.id = order_lineitems.meal_id
+      WHERE order_id = $1;
+      `,
+      [id]
+    )
+    .then((result) => {
+      const orders = result.rows;
+      return orders;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+exports.getOrderItems = getOrderItems;
+
+// select * from order_lineitems
+// where order_id in (select orders.id
+//   from order_lineitems join orders
+//   on orders.id = order_lineitems.order_id
+//   group by orders.id);
+
+
+

@@ -52,23 +52,28 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
-app.get("/text", (req, res) => {
+//endpoint for text message
+app.post("/restaurant", (req, res) => {
+  const data = req.body.data;
+  console.log(data);
+  console.log(data.meals);
   client.messages
     .create({
-      body: "Hello order is coming",
+      body: `Lanzhou Ramen: Hello! Thanks for ordering from us. Your order id is ${data.order_id} and meals of ${data.meals} will take about ${data.time} to prepare.`,
       to: "+17808506903", // Text this number
       from: "+19894030471", // From a valid Twilio number
     })
     .then((message) => console.log(message.sid));
-  setTimeout(() => {
-    client.messages
-      .create({
-        body: "Hello, your order is complete",
-        to: "+17808506903", // Text this number
-        from: "+19894030471", // From a valid Twilio number
-      })
-      .then((message) => console.log(message.sid));
-  }, 3000);
+});
+
+app.get("/text", (req, res) => {
+  client.messages
+    .create({
+      body: `Hello, yuo have an incoming order`,
+      to: "+17808506903", // Text this number
+      from: "+19894030471", // From a valid Twilio number
+    })
+    .then((message) => console.log(message.sid));
 });
 
 // Home page
