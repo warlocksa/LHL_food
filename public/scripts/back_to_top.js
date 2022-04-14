@@ -1,9 +1,8 @@
-// // // Client facing scripts here
+// // Client facing scripts here
 
 $(document).ready(function () {
   console.log('it works')
-  $("#top").hide();
-  $("#menu-page").hide();
+
   // when page scroll, the top button appear
   $(window).scroll(function () {
     if($(this).scrollTop() !== 0) {
@@ -16,12 +15,6 @@ $(document).ready(function () {
   $("#top").click(function() {
     document.documentElement.scrollTop = 0;
   })
-  $("#menu-list").click(function(){
-    event.preventDefault();
-    $("#menu-page").show("slow");
-    $("#homepage").hide();
-  })
-
   $("#place-order").click(() => {
     console.log($('#total').text())
     const num = parseInt($('#total').text());
@@ -39,14 +32,14 @@ $(document).ready(function () {
         console.log('message is sent.')
       })}
   });
-  // $('#twitter-button').on('click', function () {
-  //   // Initialize with your OAuth.io app public key
-  //   OAuth.initialize('YOUR_OAUTH_KEY');
-  //   // Use popup for OAuth
-  //   OAuth.popup('twitter').then(twitter => {
-  //     console.log(twitter);
-  //     // Retrieves user data from oauth provider
-  //     console.log(twitter.me());
-  //   });
-  // })
+  $('#twitter-button').on('click', function () {
+    // Initialize with your OAuth.io app public key
+    OAuth.initialize('rz9Hgf5YhQgwri-SSFdU7ECPsLQ');
+    // Use popup for OAuth
+    OAuth.popup('twitter').then(twitter => {
+      console.log(twitter);
+      // Retrieves user data from oauth provider
+      console.log(twitter.me());
+    });
+  })
 });

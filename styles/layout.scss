@@ -29,51 +29,58 @@ iframe {
     margin-left: 300px;
     text-align: center;
 }
-
-body .sub-container {
+#meal-page{
+    background: #fffaf3;
+}
+#map {
+    background: #fffaf3;
+}
+#gallery{
+    background: #fffaf3;
+}
+#about {
     width: 90%;
+    background: #fffaf3;
     margin: 50px;
     display: flex;
     flex-direction: row;
 }
 
-body .story-container {
-    width: 50%;
-    padding: 50px;
+.content {
+    width: 80%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-self: center;
+    margin-left: 100px;
 }
-
-.logo-container {
-    margin-top: 100px;
-}
-
-.story-container h1 {
-    padding-bottom: 10px;
-    border-bottom: 2px solid blue;
+.content h2 {
+    margin: 20px;
     font-family: 'Righteous', cursive;
 }
-
-.story-container p {
-    font-size: 25px;
-    color: rgb(224, 62, 17);
-    padding-top: 50px
+.content h2 span {
+    color: #ffb03b;
+}
+.content p {
+    font-size: 20px;
 }
 
-.sub-container img {
-    height: 438px;
-    width: auto;
-    margin: 170px;
+.about img {
+  margin-left: 150px;
 }
 
-footer {
+#ad {
     margin: 100px;
-    font-size: 50px;
+    font-size: 25px;
     font-family: 'Dancing Script', cursive;
-    color: orangered;
     text-align: center
+}
+#menu-title h2{
+    margin-top:100px;
+}
+.mealcontainer {
+    padding: 25px;
 }
 
 #top {
@@ -82,4 +89,30 @@ footer {
     right: 0;
     margin: 25px;
     color:orangered;
+}
+
+#meal-price {
+  font-size: 30px;
+  color:orangered;
+  float: right;
+}
+h6 {
+  height: 50px;
+  width: 300px;
+  display:inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40ch;
+}
+h6 :focus {
+  text-overflow: clip;
+}
+
+footer {
+  background: #fffaf3;
+  font-size: 35px;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    color: orange;
 }

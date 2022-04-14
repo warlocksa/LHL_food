@@ -6,11 +6,24 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/style.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/back_to_top.js"></script>
 
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
+  rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="/vendor/animate.min.css" rel="stylesheet">
+<link href="/vendor/bootstrap.min.css" rel="stylesheet">
+<link href="/vendor/bootstrap-icons.css" rel="stylesheet">
+<link href="/vendor/boxicons.min.css" rel="stylesheet">
+<link href="/vendor/glightbox.min.css" rel="stylesheet">
+<link href="/vendor/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- font from google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,98 +47,170 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.12.0/bootstrap-social.min.css">
 
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>midterm project</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  
 </head>
 
 <body>
   <header>
     <%- include('partials/_header') %>
   </header>
-  <div class="homepage" id="homepage">
-    <div class="main-container">
-      <div class="text-container">
-        <div class="logo-container">
-          <img id="logo" src="https://github.com/warlocksa/LHL_food/blob/cz/public/img/logo3.png?raw=true" alt="" />
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active" style="background-image: url(img/slide-1.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <div class="logo-container">
+                  <img id="logo" src="https://github.com/warlocksa/LHL_food/blob/cz/public/img/logo3.png?raw=true" alt="" />
+                </div>
+                <h2 class="animate__animated animate__fadeInDown"><span>蘭州拉麵</span> Lanzhou Ramen</h2>
+                <p class="animate__animated animate__fadeInUp" id="ad">Enjoy the taste of the Northwest China</p>
+                <div>
+                  <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Our Menu</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1>
-          <p>蘭州拉麵</p>
-          <p>Lanzhou Ramen</p>
-        </h1>
-        <h3>
-          541 Robson St, Vancouver, BC V6B 2B7
-        </h3>
-        <h3>
-          HOURS: Mon - Sun 12PM - 7PM
-          Pick-up only
-        </h3>
-        <h3>Tel:(987)456-1234</h3>
-        <h4>lanzhou@ramenmail.com</h4>
-      </div>
-      <div class="img-restaurant" style="margin: 90px;">
-        <img id="restaurant" src="https://github.com/warlocksa/LHL_food/blob/cz/public/img/restaurant.png?raw=true"
-          alt="" />
       </div>
     </div>
+  </section>
 
-    <span class="map" id="map">
-      <!-- address and show on the google map -->
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.792635074994!2d-123.12009438455186!3d49.28032637933113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486717e5a135003%3A0xc14c9af4a110cb1f!2s541%20Robson%20St%2C%20Vancouver%2C%20BC%20V6B%202B7!5e0!3m2!1sen!2sca!4v1649608190320!5m2!1sen!2sca"
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </span>
-    <div class="sub-container">
-      <div class="story-container">
-        <h1>ABOUT 蘭州拉麵</h1>
-        <p>is a type of soft wheat flour Chinese noodle. noodle is made by twisting, stretching and folding the dough
-          into
-          strands, using the weight of the dough.The length and thickness of the strands depends on the number of times
-          the dough is folded. This unique method of making noodles originated in China. The Songshi Yangsheng Bu, which
-          was written by Song Xu and dates back to 1504, has the earliest description of the method to make lamian.</p>
-      </div>
-      <img id="cooking2" src="https://github.com/warlocksa/LHL_food/blob/cz/public/img/cooking2.png?raw=true" alt="" />
-    </div>
-    <footer>
-      Enjoy the taste of the Northwest China
-    </footer>
-</body>
-</div>
+  <div class="about-container">
+     <!--=======About Section=======-->
+      <section id="about" class="about">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-lg-5 align-items-stretch video-box"
+              >
+              <img id="cooking2" src="https://github.com/warlocksa/LHL_food/blob/cz/public/img/cooking2.png?raw=true"
+                alt="" />
+            </div>
+
+            <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+
+              <div class="content">
+                <h2><span>ABOUT </span><strong>蘭州拉麵</strong></h2>
+                <p>
+                  is a type of soft wheat flour Chinese noodle. noodle is made by twisting, stretching and folding the
+                  dough
+                  into
+                  strands, using the weight of the dough.The length and thickness of the strands depends on the number
+                  of times
+                  the dough is folded. This unique method of making noodles originated in China. The Songshi Yangsheng
+                  Bu, which
+                  was written by Song Xu and dates back to 1504, has the earliest description of the method to make
+                  lamian.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section><!-- End About Section -->
+  </div>
 <div class="menu-page" id="menu-page">
-  <h1>Menu</h1>
+  <sec id="menu" class="menu">
+  <div class="section-title" id="menu-title">
+    <h2>Check our tasty <span>Menu</span></h2>
+  </div>
 
-  <div style="padding-top: 50px;padding-bottom: 50px;">
-    <div class="container">
+    <div class="meal-container">
 
-      <div class="row">
+      <div class="row" id="meal-container">
         <% for (const meal of meals) { %>
           <div class="col-md-4">
-            <h3 style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
+            <h3 id="mealname" style="padding-bottom: 5px;border-bottom: 2px solid #ccc;">
               <%= meal.name %>
             </h3>
             <img src=<%=meal.photo_url%> alt="" style="width: 100%;height: 300px;" >
             <h6 class="green"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
               <%= meal.description %>
             </h6>
+            <div class="font-color3 price" id="meal-price">
+              $ <%= meal.price %>
+            </div>
             <div>
               <button id=<%=meal.id %>
                 class ="btn btn-block btn-danger addCart">Add to cart</button>
             </div>
-            <div class="font-color3 price">
-              <%= meal.price %>
-            </div>
           </div>
           <% } %>
       </div>
-
-
-    </div>
   </div>
+  </sec>
 </div>
+      <span class="map" id="map">
+  <h2>Our Location</h2>
+    <!-- address and show on the google map -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.792635074994!2d-123.12009438455186!3d49.28032637933113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486717e5a135003%3A0xc14c9af4a110cb1f!2s541%20Robson%20St%2C%20Vancouver%2C%20BC%20V6B%202B7!5e0!3m2!1sen!2sca!4v1649608190320!5m2!1sen!2sca"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </span>
 
+<!-- ======= Gallery Section ======= -->
+<section id="gallery" class="gallery">
+  <div class="container-fluid">
 
-<button type="button" id="top">
-  <i class="fa fa-angles-up"></i>
-</button>
+    <div class="section-title">
+      <h2>Some photos from <span>Our Restaurant</span></h2>
+    </div>
 
+    <div class="row g-0">
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="img/gallery-1.jpg" class="gallery-lightbox">
+            <img src="img/gallery-1.jpg" alt="" class="img-fluid" style="width: 100%;height: 300px;">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="img/gallery-2.jpg" class="gallery-lightbox">
+            <img src="img/gallery-2.jpg" alt="" class="img-fluid" style="width: 100%;height: 300px;">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="img/gallery-3.jpg" class="gallery-lightbox">
+            <img src="img/gallery-3.jpg" alt="" class="img-fluid" style="width: 100%;height: 300px;">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <div class="gallery-item">
+          <a href="img/gallery-4.jpg" class="gallery-lightbox">
+            <img src="img/gallery-4.jpg" alt="" class="img-fluid" style="width: 100%;height: 300px;">
+          </a>
+        </div>
+      </div>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center active"><i
+    class="bi bi-arrow-up-short"></i></a>
+  
+<footer>
+<a href="#">Welcome</a>
+    </footer>
 </body>
 
 </html>
