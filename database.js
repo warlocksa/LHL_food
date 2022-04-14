@@ -1,5 +1,6 @@
 // PG database client/connection setup
 const { Pool } = require("pg");
+const { AssetContext } = require("twilio/lib/rest/serverless/v1/service/asset");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 
@@ -245,11 +246,25 @@ const getOrderItems = function (id) {
 };
 exports.getOrderItems = getOrderItems;
 
-// select * from order_lineitems
-// where order_id in (select orders.id
-//   from order_lineitems join orders
-//   on orders.id = order_lineitems.order_id
-//   group by orders.id);
+//get all previous orders
 
-
-
+const getPreviousOrders = function (id) {
+  return db
+    .query(
+      `SELECT orders.id, meals.name, order_lineitems.quantity
+      FROM orders join order_lineitems
+      on orders.id = order_lineitems.order_id
+      JOIN meals on order_lineitems.meal_id = meals.id
+      WHERE order_id != $1;
+      `,
+      [id]
+    )
+    .then((result) => {
+      const orders = result.rows;
+      return orders;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+exports.getPreviousOrders = getPreviousOrders;

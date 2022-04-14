@@ -20,11 +20,27 @@ module.exports = (db) => {
   };
   router.get("/staff", (req, res) => {
     db.getLastOrders().then((o) => {
-      const meal_id = o.id;
-      console.log("meal_id ", meal_id);
-      db.getOrderItems(meal_id).then((items) => {
-        console.log("items", items);
-        res.render("staff", { items });
+      const order_id = o.id;
+      console.log("order ", order_id);
+      db.getOrderItems(order_id).then((items) => {
+        db.getPreviousOrders(order_id).then((prevItems) => {
+          const result = {};
+          const set = new Set();
+          for (const prev of prevItems) {
+            if (set.has(prev.id)) {
+            } else {
+              set.add(prev.id);
+            }
+          }
+          for (let i of set) {
+            result[i] = [];
+          }
+          for (const prev of prevItems) {
+            result[prev.id].push(prev.name);
+          }
+          console.log("res", result);
+          res.render("staff", { items, result });
+        });
       });
     });
   });
