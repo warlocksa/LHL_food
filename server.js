@@ -69,7 +69,7 @@ app.post("/restaurant", (req, res) => {
 app.get("/text", (req, res) => {
   client.messages
     .create({
-      body: `Hello, yuo have an incoming order`,
+      body: `Hello, you have an incoming order`,
       to: "+17808506903", // Text this number
       from: "+19894030471", // From a valid Twilio number
     })

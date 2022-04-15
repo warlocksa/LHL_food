@@ -7,7 +7,6 @@ $(() => {
   $("#ongoing-button").hide();
   $("#complete-button").hide();
   $(".accept").click(() => {
-    console.log("restaurant sending message");
     const meals = $(".meal-content-new").text();
     const order_id = $(".order-id-new").text();
     const time = `${$("#myselect").val()}min`;
@@ -27,12 +26,12 @@ $(() => {
     }).done(function () {
       console.log("message is sent.");
     });
-    setTimeout(() => {
-      $("#new-order").prependTo("#complete-order");
-      $("#ongoing-button").hide();
-      $("#complete-button").show();
-    }, 5000)
   });
+  $("#ongoing-button").click(()=>{
+    $("#new-order").prependTo("#complete-order");
+    $("#ongoing-button").hide();
+    $("#complete-button").show();
+  })
   //
   $("#place-order").click(() => {
     console.log($('#total').text())
