@@ -21,6 +21,8 @@ VALUES (1),
 
 INSERT INTO order_lineitems (order_id, meal_id,price, quantity)
 VALUES (1, 2,15,1),
+(2, 2,15,1),
+(2, 5,6,1),
 (1, 5,6,1);
 
 INSERT INTO order_reviews (user_id, order_id, rating)

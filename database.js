@@ -184,6 +184,27 @@ group by orders.id, order_lineitems.id,meals.id;
 };
 exports.getAllOrderItems = getAllOrderItems;
 
+//Remove an order
+const removeOrder = function (user_id) {
+  return db
+    .query(
+      `DELETE FROM orders WHERE user_id = $1;
+  `,
+      [user_id]
+    )
+    .then((result) => {
+      console.log("delete order");
+      if (result) {
+        console.log("delete order result", result);
+        return result;
+      }
+    })
+    .catch((err) => {
+      console.log("error when deleting order", err);
+    });
+};
+exports.removeOrder = removeOrder;
+
 //Remove an order line item
 
 const removeOrderItem = function (item_id) {
@@ -247,7 +268,6 @@ const getOrderItems = function (id) {
 exports.getOrderItems = getOrderItems;
 
 //get all previous orders
-
 const getPreviousOrders = function (id) {
   return db
     .query(

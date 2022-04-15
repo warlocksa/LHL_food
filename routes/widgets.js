@@ -61,25 +61,17 @@ module.exports = (db) => {
     });
   });
 
-  // delete an order line item
+  // delete order line items
   router.delete("/cart/delete", (req, res) => {
     const userId = req.session.userId;
     const meal_id = req.body.id;
     OrderExist(userId).then((order) => {
-      if (!order) {
-        //  do delete order
-        // db.createOrder(userId).then((order) => {
-        //   const orderid = order.rows[0].id;
-        //   db.createOrderItem(orderid, meal_id, meal_price).then((orderitem) => {
-        //     console.log("orderitem", orderitem.rows[0]);
-        //   });
-        // });
-        // return;
+      if (order) {
+        db.removeOrderItem(meal_id).then((orderitem) => {
+          console.log("removed item", orderitem.rows[0]);
+          res.send(orderitem.rows[0]);
+        });
       }
-      db.removeOrderItem(meal_id).then((orderitem) => {
-        console.log("removed item", orderitem.rows[0]);
-        res.send(orderitem.rows[0]);
-      });
     });
   });
   return router;
