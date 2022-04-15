@@ -4,16 +4,20 @@ $(() => {
   $(".cart").click(function () {
     window.location.href = "http://localhost:8080/api/widgets/cart";
   });
-
+  $("#ongoing-button").hide();
+  $("#complete-button").hide();
   $(".accept").click(() => {
     console.log("restaurant sending message");
-    const meals = $(".meal-content").text();
-    const order_id = $(".order-id").text();
-    const time = $("#myselect").val();
+    const meals = $(".meal-content-new").text();
+    const order_id = $(".order-id-new").text();
+    const time = `${$("#myselect").val()}min`;
+    $("#accept-button").hide();
+    $("#ongoing-button").show();
+    $("#estimated-time").hide();
+    $("#myselect").hide();
     console.log("meals", meals);
     console.log("order_id ", order_id);
     console.log("time", time);
-
     const data = { meals, order_id, time };
     console.log(data);
     $.ajax({
@@ -23,6 +27,11 @@ $(() => {
     }).done(function () {
       console.log("message is sent.");
     });
+    setTimeout(() => {
+      $("#new-order").prependTo("#complete-order");
+      $("#ongoing-button").hide();
+      $("#complete-button").show();
+    }, 5000)
   });
   //
   $("#place-order").click(() => {

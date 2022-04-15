@@ -22,11 +22,13 @@
 
 
 </head>
-
+<body>
+  <header>
+    <%- include('partials/_header') %>
+  </header>
 <body>
   <div id="staff-page" style="background-image: url(https://github.com/warlocksa/LHL_food/blob/cz/public/img/background.jpg?raw=true);">
-    <img id="staff-logo" src="https://github.com/warlocksa/LHL_food/blob/cz/public/img/logo2.png?raw=true" alt="" />
-  <h1> Incoming orders </h1>
+  <h1 id="incoming-title"> Incoming orders </h1>
   <div class="page-content page-container" id="page-content">
     <div class="padding">
       <div class="row container d-flex justify-content-center">
@@ -35,24 +37,24 @@
             <div class="card-body">
               <h4 class="card-title">Orders</h4>
               <div class="table-responsive">
-                <table class="table">
+                <table class="table" id="new-order">
                   <thead>
                     <tr>
                       <th>Order Number</th>
                       <th>Order content</th>
-                      <th>Preparing time</th>
+                      <th id="estimated-time">Preparing time</th>
                       <th>Status</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody >
                     <tr>
-                      <td class="order-id">
+                      <td class="order-id-new">
                         <%= items[0].order_id%>
                       </td>
 
                       <td>
                         <% for (const meal of items) { %>
-                          <strong class="meal-content">
+                          <strong class="meal-content-new">
                             <%= meal.name %> : <%= meal.quantity%>
                           </strong>
                           <br>
@@ -68,8 +70,11 @@
                         </select>
                       </td>
                       <td><button style="background-color:green;"
-                          class="badge accept badge-pill badge-success">Accept</button>
-                      </td>
+                          class="badge accept badge-pill badge-success" id="accept-button">Accept</button>
+                          <button style="background-color:orange" class="badge accept badge-pill badge-success" id="ongoing-button">Ongoing</button>
+                          <td><button style="background-color:green;" class="badge accept badge-pill badge-success" id="complete-button">Complete</button>
+                          </td>
+                        </td>
 
                     </tr>
 
@@ -82,9 +87,14 @@
       </div>
     </div>
   </div>
-  <h1>Previous orders </h1>
+  <h1>Complete Order</h1>
+<div id="complete-order">
+</div>
 
 
+<h1>Previous orders </h1>
+  <div id="previous-order">
+      
   <% for (const res in result) { %>
     <div class="page-content page-container" id="page-content">
       <div class="padding">
@@ -94,7 +104,7 @@
               <div class="card-body">
                 <h4 class="card-title">Orders</h4>
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table" id="previous-table">
                     <thead>
                       <tr>
                         <th>Order Number</th>
@@ -129,7 +139,7 @@
       </div>
     </div>
     <% } %>
-
+  </div>
 </div>
 </body>
 

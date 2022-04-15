@@ -19,6 +19,7 @@ module.exports = (db) => {
     });
   };
   router.get("/staff", (req, res) => {
+    const userId = req.session.userId;
     db.getLastOrders().then((o) => {
       const order_id = o.id;
       console.log("order ", order_id);
@@ -39,7 +40,9 @@ module.exports = (db) => {
             result[prev.id].push(prev.name);
           }
           console.log("res", result);
-          res.render("staff", { items, result });
+          db.getUserWithId(userId).then((user) => {
+            res.render("staff", { items, result, user });
+          });
         });
       });
     });
