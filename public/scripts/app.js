@@ -6,6 +6,11 @@ $(() => {
   });
   $("#ongoing-button").hide();
   $("#complete-button").hide();
+  $("#ongoing-button").click(() => {
+    $("#new-order").prependTo("#complete-order");
+    $("#ongoing-button").hide();
+    $("#complete-button").show();
+  });
   $(".accept").click(() => {
     console.log("restaurant sending message");
     const meals = $(".meal-content-new").text();
@@ -27,30 +32,26 @@ $(() => {
     }).done(function () {
       console.log("message is sent.");
     });
-    setTimeout(() => {
-      $("#new-order").prependTo("#complete-order");
-      $("#ongoing-button").hide();
-      $("#complete-button").show();
-    }, 5000)
   });
   //
   $("#place-order").click(() => {
-    console.log($('#total').text())
-    if ($('#total').text() === '$ 0.00') {
-      alert("The cart is empty")
-      return 
+    console.log($("#total").text());
+    if ($("#total").text() === "$ 0.00") {
+      alert("The cart is empty");
+      return;
     } else {
-    window.location.href =
-      "http://localhost:8080/api/widgets/order_confirmation";
-    console.log("customer sending message");
-    $.ajax({
-      method: "GET",
-      url: "/text",
-      data: {},
-    }).done(function () {
-      console.log("message is sent.");
-    })
-  }});
+      window.location.href =
+        "http://localhost:8080/api/widgets/order_confirmation";
+      console.log("customer sending message");
+      $.ajax({
+        method: "GET",
+        url: "/text",
+        data: {},
+      }).done(function () {
+        console.log("message is sent.");
+      });
+    }
+  });
 
   //remove item from cart
   $(".remove").click(function () {
@@ -86,7 +87,9 @@ $(() => {
       method: "POST",
       data: { id, price },
     }).then(() => {});
-    $("#addMessage").text("Added it successful").fadeIn()
-        setTimeout(function(){$("#addMessage").hide()}, 1000)
+    $("#addMessage").text("Added it successful").fadeIn();
+    setTimeout(function () {
+      $("#addMessage").hide();
+    }, 1000);
   });
 });
