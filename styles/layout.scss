@@ -1,6 +1,236 @@
 // See: https://sass-lang.com/
+// body part
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    font-size: 62.5%;
+    font-size: 10px;
+    background-attachment: fixed;
+}
 
-body,
-html {
-  margin: 0;
+body .main-container {
+    width: 80%;
+    margin-left: 200px;
+    display: flex;
+    flex-direction: row
+}
+
+body .text-container {
+    width: 30%;
+    font-size: 25px;
+    color: orangered;
+    display: flex;
+    flex-direction: column
+}
+
+#meal-page {
+    background: #fffaf3;
+}
+
+#map {
+    background: #fffaf3;
+}
+
+#gallery {
+    background: #fffaf3;
+}
+
+// map part
+#map-content {
+    display: flex;
+    flex-direction: row;
+}
+
+#map h2 {
+    text-align: center;
+}
+
+#map h2 span {
+    color: #ffb03b;
+}
+
+#open-hour {
+    width: 30%;
+    text-align: center;
+    font-size: 35px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#open-hour span {
+    color: #ffb03b;
+    font-family: 'Dancing Script', cursive;
+}
+
+iframe {
+    margin-left: 200px;
+    text-align: center;
+}
+
+// about part
+#about {
+    width: 90%;
+    background: #fffaf3;
+    margin: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.content {
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-self: center;
+    margin-left: 100px;
+}
+
+.content h2 {
+    margin: 20px;
+    font-family: 'Righteous', cursive;
+}
+
+.content h2 span {
+    color: #ffb03b;
+}
+
+.content p {
+    font-size: 20px;
+}
+
+.about img {
+    margin-left: 150px;
+}
+
+// home page part
+#ad {
+    margin: 100px;
+    font-size: 25px;
+    font-family: 'Dancing Script', cursive;
+    text-align: center
+}
+
+// menu part
+#menu-title h2 {
+    margin-top: 100px;
+}
+
+#menu-title h2 span {
+    color: #ffb03b;
+}
+
+.mealcontainer {
+    padding: 25px;
+}
+
+#meal-container {
+    margin: 20px;
+}
+
+
+#meal-price {
+    font-size: 30px;
+    color: orangered;
+    float: right;
+}
+
+#meal-container h6 {
+    height: 50px;
+    width: 300px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40ch;
+    font-size: 15px;
+}
+
+#meal-container h6 :focus {
+    overflow: visible;
+}
+
+#top-button i {
+    margin-top: 18px;
+    margin-left: 9px;
+}
+
+// footer part
+
+footer {
+    background: #fffaf3;
+    font-size: 35px;
+    text-align: center;
+    color: orange;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+//cart page
+
+#cart-page {
+    width: 100%;
+    height: 800px;
+}
+
+#cart-container {
+    // background-color: rgb(244, 236, 212);
+    font-size: 20px;
+}
+
+#back-to-shop {
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+// order sent succesful
+#order-sent {
+    height: 800px;
+    width: 100%;
+}
+
+#order-sent h1 {
+    margin-top: 190px;
+}
+
+#order-sent p {
+    padding: 30px;
+    font-size: 25px;
+    font-family: 'Dancing Script', cursive;
+}
+
+// nav bar
+#account-part label {
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+#account-part button {
+    margin-top: 10px;
+}
+
+// staff page
+#incoming-title {
+    margin-top: 130px
+}
+#incoming-order {
+    margin-top: -130px;
+}
+#complete-order {
+    width: 60%;
+    height: auto;
+}
+
+#previous-order {
+    margin-top: -50px;
+}
+#previous-order table {
+    width:100%;
+    height:auto;
 }
